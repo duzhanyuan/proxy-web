@@ -1,3 +1,4 @@
+//go:generate goversioninfo -icon=school.ico
 package main
 
 import (
@@ -8,11 +9,12 @@ import (
 	"os/signal"
 	"syscall"
 
+	_ "net/http/pprof"
 	"proxy-web/server"
 	"proxy-web/util"
 )
 
-var daemon = flag.Bool("d", true, "default run deamon")
+var daemon = flag.Bool("d", true, "default run daemon")
 
 func init() {
 	if !flag.Parsed() {
